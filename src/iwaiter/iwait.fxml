@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="theme" stylesheets="@iwaiteStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iwaiter.IwaitController">
+  <children>
+    <SplitPane id="splitPaneHorizontal1" dividerPositions="0.25125" focusTraversable="true" prefHeight="535.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+      <items>
+        <AnchorPane id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <ListView fx:id="list" prefHeight="535.0" prefWidth="198.0" styleClass="darkList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+        <AnchorPane id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <SplitPane id="splitPaneVertical1" dividerPositions="0.5158878504672897" focusTraversable="true" orientation="VERTICAL" prefHeight="598.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane id="anchorPane3" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <children>
+                    <TableView id="tableView1" fx:id="table" prefHeight="219.0" prefWidth="453.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="0.0">
+                      <columns>
+                        <TableColumn fx:id="colName" maxWidth="960.0" minWidth="96.0" prefWidth="96.0" text="O_Number" />
+                        <TableColumn fx:id="colTischNummer" maxWidth="1170.0" minWidth="117.0" prefWidth="117.0" text="Table_Number" />
+                        <TableColumn fx:id="colSummer" maxWidth="960.0" minWidth="96.0" prefWidth="96.0" text="Total" /><TableColumn fx:id="colAbgeshloss" maxWidth="1440.0" minWidth="144.0" prefWidth="144.0" text="Finilised" />
+                      </columns>
+                    </TableView>
+<VBox alignment="CENTER" layoutX="463.0" layoutY="45.0" prefHeight="210.0" prefWidth="101.0" spacing="10.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="10.0">
+<children>
+        <Button id="button1" fx:id="newOrder" layoutX="480.0" layoutY="18.0" onAction="#newOrderFired" text="New" />
+        <Button id="button1" fx:id="deleteOrder" layoutX="474.27777099609375" layoutY="48.666664123535156" onAction="#deleteOrderFired" text="Delete" />
+        <Button id="button1" fx:id="calcOrder" layoutX="483.0" layoutY="77.0" onAction="#saveOrderFired" text="Calculate" /><Button id="button1" fx:id="printBill" layoutX="468.0" layoutY="106.0" onAction="#printOrderFired" text="Print" /><Button id="button1" fx:id="printAll" layoutX="468.0" layoutY="106.0" onAction="#printAllFired" text="Print All" /><Button id="button1" fx:id="abschliessen" layoutX="468.0" layoutY="106.0" onAction="#finiliseOrderFired" text="Finilised" />
+</children>
+
+</VBox>
+<HBox alignment="CENTER_LEFT" layoutX="29.666656494140625" layoutY="234.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="29.666656494140625" AnchorPane.rightAnchor="311.3333435058594">
+<children>
+<Label id="label4" layoutX="29.666656494140625" layoutY="239.22219848632812" minWidth="-Infinity" style="-fx-font-size: 14;" text="change Table Number" />
+<ComboBox fx:id="changetisch" layoutX="138.0" layoutY="234.0" onAction="#changeTischNumber" prefWidth="150.0" />
+</children>
+</HBox>
+                  </children>
+                </AnchorPane>
+                <AnchorPane id="anchorPane4" fx:id="details" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <children>
+                    <Label id="label2" layoutX="12.0" layoutY="10.0" style="-fx-font-size: 15;" text="ITEMS in Order" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="442.0" AnchorPane.topAnchor="10.0" /><TableView fx:id="itemsTable" layoutY="36.0" prefHeight="219.0" prefWidth="268.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="36.0">
+  <columns>
+    <TableColumn fx:id="colGetränk" prefWidth="153.0" text="Beverage" />
+    <TableColumn fx:id="colPreisGetränk" prefWidth="114.0" text="Price" />
+  </columns>
+</TableView>
+<VBox layoutX="287.0" layoutY="37.0" spacing="15.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="293.353271484375" AnchorPane.rightAnchor="36.646728515625" AnchorPane.topAnchor="38.0">
+<children>
+<HBox layoutX="299.16668701171875" layoutY="31.5555419921875" spacing="15.0">
+<children><Button id="button1" fx:id="newItem" layoutX="304.16668701171875" layoutY="36.444427490234375" onAction="#newItemFired" text="New" /><Button id="button1" fx:id="deleteItem" layoutX="379.33331298828125" layoutY="35.5555419921875" onAction="#deleteItemFired" text="Delete" /><Button id="button1" fx:id="saveItemButton" layoutX="379.33331298828125" layoutY="35.5555419921875" onAction="#saveItemFired" text="Save" />
+</children>
+</HBox><Text strokeType="OUTSIDE" strokeWidth="0.0" text="input for item edit" />
+<VBox layoutX="293.353271484375" layoutY="93.73046875" spacing="6.0">
+<children>
+<HBox layoutX="293.353271484375" layoutY="114.5" spacing="30.0">
+<children>
+<VBox layoutX="293.353271484375" layoutY="119.5" spacing="20.0">
+<children><Label layoutX="293.353271484375" layoutY="119.5" text="Bevarage" /><Label layoutX="299.70654296875" layoutY="154.0" prefHeight="28.0" prefWidth="44.0" text="Price" />
+</children>
+</VBox>
+<VBox layoutX="367.21875" layoutY="114.5" spacing="20.0">
+<children><TextField fx:id="changeGetränkname" layoutX="367.21875" layoutY="114.5" /><TextField fx:id="changeGetränkpreis" layoutX="369.0" layoutY="150.0" />
+</children>
+</VBox>
+</children>
+</HBox>
+</children>
+</VBox>
+</children>
+</VBox>
+                  </children>
+                </AnchorPane>
+              </items>
+            </SplitPane>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <Button fx:id="importDate" layoutX="631.0" layoutY="22.0" mnemonicParsing="false" onAction="#improtData" text="DATA IMPORT" AnchorPane.rightAnchor="29.0" />
+    <Text fx:id="textName" layoutX="31.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="iWaiter">
+<font>
+<Font size="36.0" />
+</font></Text>
+  </children>
+</AnchorPane>
